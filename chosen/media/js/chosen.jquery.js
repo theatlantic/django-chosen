@@ -9,7 +9,7 @@
   */  var $, Chosen, SelectParser, get_side_border_padding, root;
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
-  $ = jQuery;
+  $ = (typeof window.django != 'undefined') ? django.jQuery : jQuery;
   $.fn.extend({
     chosen: function(data, options) {
       return $(this).each(function(input_field) {
@@ -774,4 +774,7 @@
     return parser.parsed;
   };
   root.SelectParser = SelectParser;
+  $(document).ready(function() {
+    $(".chzn-select").chosen();
+  });
 }).call(this);
