@@ -26,7 +26,7 @@ class ChosenWidgetMixin(object):
 		else:
 			attrs['class'] = 'chzn-select'
 		
-		super(ChosenWidget, self).__init__(attrs, *args, **kwargs)
+		super(ChosenWidgetMixin, self).__init__(attrs, *args, **kwargs)
 	
 	def add_to_css_class(self, classes, new_class):
 		new_classes = classes

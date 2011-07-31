@@ -2,7 +2,10 @@ from django import forms
 
 from widgets import ChosenSelect, ChosenSelectMultiple
 
-__all__ = ['ChosenFieldMixin', 'ChosenChoiceField', 'ChosenMultipleChoiceField']
+__all__ = [
+	'ChosenFieldMixin', 'ChosenChoiceField', 'ChosenMultipleChoiceField',
+	'ChosenModelChoiceField', 'ChosenModelMultipleChoiceField',
+]
 
 class ChosenFieldMixin(object):
 	
@@ -13,7 +16,7 @@ class ChosenFieldMixin(object):
 			widget_kwargs['overlay'] = overlay
 		widget = self.widget(**widget_kwargs)
 		kwargs['widget'] = widget
-		super(ChosenField, self).__init__(*args, **kwargs)
+		super(ChosenFieldMixin, self).__init__(*args, **kwargs)
 			
 
 class ChosenChoiceField(ChosenFieldMixin, forms.ChoiceField):
@@ -24,3 +27,11 @@ class ChosenMultipleChoiceField(ChosenFieldMixin, forms.MultipleChoiceField):
 	
 	widget = ChosenSelectMultiple
 			
+class ChosenModelChoiceField(ChosenFieldMixin, forms.ModelChoiceField):
+
+	widget = ChosenSelect
+
+class ChosenModelMultipleChoiceField(ChosenFieldMixin, forms.ModelMultipleChoiceField):
+	
+	widget = ChosenSelectMultiple
+	
