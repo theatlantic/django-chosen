@@ -27,8 +27,8 @@ For this to work, include chosen.urls in your urls.py::
         (r'^desired-path-to-chosen/', include('chosen.urls')),
     )
 
-If you would like to serve the contents of *chosen/media* directly from
-your webserver, set **CHOSEN_MEDIA_URL** in your settings.py to point to
+If you would like to serve the contents of ``chosen/media`` directly from
+your webserver, set ``CHOSEN_MEDIA_URL`` in your settings.py to point to
 the url you have aliased to the chosen media directory (or where you have
 copied them).
 
@@ -47,7 +47,7 @@ Usage
 All of these fields have the same import path as their django counterparts,
 save the fact that the root module is ``chosen`` instead of ``django``.
 
-The *django-chosen* fields can be passed an optional kwarg *overlay* that
+The *django-chosen* fields can be passed an optional kwarg ``overlay`` that
 overrides the text which appears when no option is selected in the dropdown.
 
 Example
