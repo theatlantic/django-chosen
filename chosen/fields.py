@@ -2,7 +2,9 @@ from django import forms
 
 from widgets import ChosenSelect, ChosenSelectMultiple
 
-class ChosenField(object):
+__all__ = ['ChosenFieldMixin', 'ChosenChoiceField', 'ChosenMultipleChoiceField']
+
+class ChosenFieldMixin(object):
 	
 	def __init__(self, *args, **kwargs):
 		widget_kwargs = {}
@@ -14,11 +16,11 @@ class ChosenField(object):
 		super(ChosenField, self).__init__(*args, **kwargs)
 			
 
-class ChosenChoiceField(ChosenField, forms.ChoiceField):
+class ChosenChoiceField(ChosenFieldMixin, forms.ChoiceField):
 	
 	widget = ChosenSelect
 
-class ChosenMultipleChoiceField(ChosenField, forms.MultipleChoiceField):
+class ChosenMultipleChoiceField(ChosenFieldMixin, forms.MultipleChoiceField):
 	
 	widget = ChosenSelectMultiple
 			

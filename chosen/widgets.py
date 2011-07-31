@@ -7,7 +7,9 @@ from django import forms
 from django.core.urlresolvers import reverse
 from django.template.loader import render_to_string
 
-class ChosenWidget(object):
+__all__ = ['ChosenWidgetMixin', 'ChosenSelect', 'ChosenSelectMultiple']
+
+class ChosenWidgetMixin(object):
 	
 	def __init__(self, attrs=None, *args, **kwargs):
 		if attrs is not None:
@@ -66,8 +68,8 @@ class ChosenWidget(object):
 	media = property(get_media)
 	
 
-class ChosenSelect(ChosenWidget, forms.Select):
+class ChosenSelect(ChosenWidgetMixin, forms.Select):
 	pass
 
-class ChosenSelectMultiple(ChosenWidget, forms.SelectMultiple):
+class ChosenSelectMultiple(ChosenWidgetMixin, forms.SelectMultiple):
 	pass
