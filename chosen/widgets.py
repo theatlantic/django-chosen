@@ -1,25 +1,18 @@
-import os
-
 from django import forms
-from django.core.urlresolvers import reverse
-
-from chosen import settings
+from django.conf import settings
 
 __all__ = ['ChosenWidgetMixin', 'ChosenSelect', 'ChosenSelectMultiple']
 
 
 class ChosenWidgetMixin(object):
 
-    def __init__(self, attrs=None, *args, **kwargs):
-        if attrs is not None:
-            attrs = attrs.copy()
-        else:
-            attrs = {}
+    class Media:
+        js = ("%s%s?v=1" % (settings.STATIC_URL, "js/chosen.jquery.min.js"), )
+        css = {"all": ("%s%s?v=1" % (settings.STATIC_URL, "css/chosen.css"))}
 
-        overlay = kwargs.pop('overlay', None)
-        if overlay is not None:
-            attrs['data-placeholder'] = overlay
+    def __init__(self, attrs={}, *args, **kwargs):
 
+        attrs['data-placeholder'] = kwargs.pop('overlay', None)
         attrs['class'] = "class" in attrs and self.add_to_css_class(
             attrs['class'], 'chzn-select') or "chzn-select"
 
@@ -35,31 +28,6 @@ class ChosenWidgetMixin(object):
         except TypeError:
             pass
         return new_classes
-
-    def get_media(self):
-        """
-        A method used to dynamically generate the media property,
-        since we may not have the urls ready at the time of import,
-        and then the reverse() call would fail.
-        """
-        from django.forms.widgets import Media as _Media
-
-        if settings.CHOSEN_MEDIA_URL is not None:
-            media_url = settings.CHOSEN_MEDIA_URL + '/'
-        else:
-            media_url = reverse('chosen-static', kwargs={'path': ''})
-
-        media_cls = type('Media', (_Media,), {
-            'css': {
-                'all': (os.path.join(media_url, 'css/chosen.css?v=1')),
-            },
-            'js': (
-                os.path.join(media_url, 'js/chosen.jquery.js?v=1'),
-            )
-        })
-        return _Media(media_cls)
-
-    media = property(get_media)
 
 
 class ChosenSelect(ChosenWidgetMixin, forms.Select):

@@ -10,42 +10,30 @@ Installation
 
 The recommended way to install from source is with pip::
 
-    $ pip install git+git://github.com/theatlantic/python-blogger.git
+    $ pip install -e git+git://github.com/Fandekasp/django-chosen.git#egg=django-chosen
 
 If the source is already checked out, use setuptools::
 
     $ python setup.py install
 
-Configuration
--------------
-
-By default *django-chosen* serves up the javascript and css through django.
-For this to work, include chosen.urls in your urls.py::
-
-    url_patterns = (
-        # ...
-        (r'^desired-path-to-chosen/', include('chosen.urls')),
-    )
-
-If you would like to serve the contents of ``chosen/media`` directly from
-your webserver, set ``CHOSEN_MEDIA_URL`` in your settings.py to point to
-the url you have aliased to the chosen media directory (or where you have
-copied them).
 
 Usage
 -----
 
 *django-chosen* makes available the following fields and widget:
 
-- ``ChosenChoiceField``
-- ``ChosenModelChoiceField``
-- ``ChosenMultipleChoiceField``
-- ``ChosenModelMultipleChoiceField``
-- ``ChosenSelect``
-- ``ChosenSelectMultiple``
+Fields::
 
-All of these fields have the same import path as their django counterparts,
-save the fact that the root module is ``chosen`` instead of ``django``.
+    - ``ChosenChoiceField``
+    - ``ChosenModelChoiceField``
+    - ``ChosenMultipleChoiceField``
+    - ``ChosenModelMultipleChoiceField``
+
+Widgets::
+
+    - ``ChosenSelect``
+    - ``ChosenSelectMultiple``
+
 
 The *django-chosen* fields can be passed an optional kwarg ``overlay`` that
 overrides the text which appears when no option is selected in the dropdown.
@@ -57,7 +45,7 @@ Example
 
     from django import forms
     from chosen import forms as chosenforms
-    
+
     class BookForm(forms.Form):
         name = forms.CharField(max_length=100)
         quality = chosenforms.ChosenChoiceField(overlay="Select book quality...",

@@ -11,12 +11,9 @@ __all__ = [
 class ChosenFieldMixin(object):
 
     def __init__(self, *args, **kwargs):
-        widget_kwargs = {}
-        overlay = kwargs.pop('overlay', None)
-        if overlay is not None:
-            widget_kwargs['overlay'] = overlay
-        widget = self.widget(**widget_kwargs)
-        kwargs['widget'] = widget
+        widget_kwargs = "overlay" in kwargs and\
+            {"overlay": kwargs.pop('overlay')} or {}
+        kwargs['widget'] = self.widget(**widget_kwargs)
         super(ChosenFieldMixin, self).__init__(*args, **kwargs)
 
 
