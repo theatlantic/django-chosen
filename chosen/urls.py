@@ -1,7 +1,8 @@
 from django.conf.urls.defaults import patterns, url
 
-from chosen import views
+from views import static_media
+
 
 urlpatterns = patterns('',
-	url(r'^_static/(?P<path>.*)$', views.static_media, name='chosen-static'),
+    url(r'^_static/(?P<path>.*)$', static_media, name='chosen-static'),
 )
