@@ -1,7 +1,8 @@
 from django import forms
 from django.conf import settings
 
-__all__ = ['ChosenWidgetMixin', 'ChosenSelect', 'ChosenSelectMultiple']
+__all__ = ['ChosenWidgetMixin', 'ChosenSelect', 'ChosenSelectMultiple',
+        'ChosenGroupSelect']
 
 
 class ChosenWidgetMixin(object):
@@ -37,3 +38,11 @@ class ChosenSelect(ChosenWidgetMixin, forms.Select):
 
 class ChosenSelectMultiple(ChosenWidgetMixin, forms.SelectMultiple):
     pass
+
+
+class ChosenGroupSelect(ChosenSelect):
+
+    def __init__(self, attrs={}, *args, **kwargs):
+        super(ChosenGroupSelect, self).__init__(attrs, *args, **kwargs)
+        attrs["class"] = "chzn-single chzn-single-with-drop"
+
