@@ -10,7 +10,7 @@ Installation
 
 The recommended way to install from source is with pip::
 
-    $ pip install git+git://github.com/theatlantic/python-blogger.git
+    $ pip install -e git+git://github.com/theatlantic/django-chosen.git
 
 If the source is already checked out, use setuptools::
 
