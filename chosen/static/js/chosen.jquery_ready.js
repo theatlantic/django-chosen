@@ -1,3 +1,5 @@
 (function ($) {
-    $(".chzn-select").chosen();
+    $(function () {
+	    $(".chzn-select").chosen();
+	});
 }(jQuery));
