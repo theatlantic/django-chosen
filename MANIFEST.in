@@ -1,1 +1,2 @@
-include *
+include chosen/static/*
+reverse-include chosen/static *
