@@ -1,2 +1,5 @@
-include chosen/static/*
+include chosen/static/css/chosen.css
+include chosen/static/img/chosen-sprite.png
+include chosen/static/js/*.js
+include chosen/static/js/chosen.LICENSE.md
 reverse-include chosen/static *
