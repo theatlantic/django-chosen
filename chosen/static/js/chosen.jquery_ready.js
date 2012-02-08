@@ -2,4 +2,7 @@
     $(function () {
 	    $(".chzn-select").chosen();
 	});
-}(jQuery));
+}(typeof window.jQuery == 'undefined' && typeof window.django != 'undefined')
+  ? django.jQuery
+  : jQuery
+);
