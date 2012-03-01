@@ -4,13 +4,23 @@ from django.conf import settings
 __all__ = ['ChosenWidgetMixin', 'ChosenSelect', 'ChosenSelectMultiple',
         'ChosenGroupSelect']
 
+CHOSEN_BASE_URL = getattr(settings, 'CHOSEN_BASE_URL', settings.STATIC_URL + "chosen/")
+CHOSEN_JS_URL = getattr(settings, 'CHOSEN_JS_URL', CHOSEN_BASE_URL + "chosen.jquery.min.js")
+CHOSEN_CSS_URL = getattr(settings, 'CHOSEN_CSS_URL', CHOSEN_BASE_URL + "chosen.css")
+DJANGO_CHOSEN_JS_URL = getattr(settings, 'DJANGO_CHOSEN_JS_URL', settings.STATIC_URL + "django-chosen/django-chosen.js")
 
 class ChosenWidgetMixin(object):
 
     class Media:
-        js = ("%s%s?v=1" % (settings.STATIC_URL, "js/chosen.jquery.min.js"),
-            "%s%s?v=3" % (settings.STATIC_URL, "js/chosen.jquery_ready.js"))
-        css = {"all": ("%s%s?v=1" % (settings.STATIC_URL, "css/chosen.css"), )}
+        js = (
+            DJANGO_CHOSEN_JS_URL,
+            CHOSEN_JS_URL
+        )
+        css = {
+            "all": (
+                CHOSEN_CSS_URL,
+            )
+        }
 
     def __init__(self, attrs={}, *args, **kwargs):
 
