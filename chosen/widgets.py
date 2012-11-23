@@ -8,9 +8,14 @@ __all__ = ['ChosenWidgetMixin', 'ChosenSelect', 'ChosenSelectMultiple',
 class ChosenWidgetMixin(object):
 
     class Media:
-        js = ("%s%s?v=2" % (settings.STATIC_URL, "js/chosen.jquery.min.js"),
-            "%s%s?v=3" % (settings.STATIC_URL, "js/chosen.jquery_ready.js"))
-        css = {"all": ("%s%s?v=1" % (settings.STATIC_URL, "css/chosen.css"), )}
+        js = (
+            "%s%s" % (settings.STATIC_URL, "django-chosen/before-chosen.js"),
+            "%s%s" % (settings.STATIC_URL, "chosen/chosen.jquery.min.js"),
+            "%s%s" % (settings.STATIC_URL, "django-chosen/after-chosen.js"),
+        )
+        css = {
+            "all": ("%s%s" % (settings.STATIC_URL, "chosen/chosen.css"),
+        )}
 
     def __init__(self, attrs={}, *args, **kwargs):
 
