@@ -17,8 +17,13 @@
                 }).css('overflow', 'visible');
             }
 
+            options = {}
+            if ($select.attr('data-optional')) {
+                options['allow_single_deselect'] = true;
+            }
+
             // Initialize Chosen
-            $select.chosen();
+            $select.chosen(options);
         });
     });
 })((typeof window.django != 'undefined') ? django.jQuery : jQuery);
