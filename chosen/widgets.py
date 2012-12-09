@@ -20,6 +20,11 @@ class ChosenWidgetMixin(object):
 
         super(ChosenWidgetMixin, self).__init__(attrs, *args, **kwargs)
 
+    def render(self, *args, **kwargs):
+        if not self.is_required:
+            self.attrs.update({'data-optional': True})
+        return super(ChosenWidgetMixin, self).render(*args, **kwargs)
+
     def add_to_css_class(self, classes, new_class):
         new_classes = classes
         try:
