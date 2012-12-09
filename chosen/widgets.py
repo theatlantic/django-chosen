@@ -17,7 +17,6 @@ class ChosenWidgetMixin(object):
         attrs['data-placeholder'] = kwargs.pop('overlay', None)
         attrs['class'] = "class" in attrs and self.add_to_css_class(
             attrs['class'], 'chzn-select') or "chzn-select"
-
         super(ChosenWidgetMixin, self).__init__(attrs, *args, **kwargs)
 
     def render(self, *args, **kwargs):
@@ -50,4 +49,3 @@ class ChosenGroupSelect(ChosenSelect):
     def __init__(self, attrs={}, *args, **kwargs):
         super(ChosenGroupSelect, self).__init__(attrs, *args, **kwargs)
         attrs["class"] = "chzn-single chzn-single-with-drop"
-
