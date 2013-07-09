@@ -19,7 +19,7 @@ class ChosenWidgetMixin(object):
         attrs['class'] = "class" in attrs and self.add_to_css_class(
             attrs['class'], 'chzn-select') or "chzn-select"
         if get_language_bidi():
-            self.add_to_css_class(attrs['class'], 'chzn-rtl')
+            attrs['class'] = self.add_to_css_class(attrs['class'], 'chzn-rtl')
         super(ChosenWidgetMixin, self).__init__(attrs, *args, **kwargs)
 
     def render(self, *args, **kwargs):
