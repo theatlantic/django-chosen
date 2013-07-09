@@ -19,6 +19,15 @@ If the source is already checked out, use setuptools:
 Usage
 -----
 
+To use the *django-chosen* in your project you need to add "chosen" to
+your `INSTALLED_APPS` and include the following in the templates that
+use it:
+
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/chosen.css"/>
+ 
+        <script src="{{ STATIC_URL }}js/chosen.jquery.min.js"></script>
+        <script src="{{ STATIC_URL }}js/chosen.jquery_ready.js"></script>
+
 *django-chosen* makes the following fields and widget available:
 
 __Fields:__
