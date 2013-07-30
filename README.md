@@ -10,11 +10,15 @@ Installation
 
 The recommended way to install from source is with pip:
 
-        $ pip install -e git+git://github.com/theatlantic/django-chosen.git#egg=django-chosen
+        pip install -e "git+https://github.com/theatlantic/django-chosen.git#egg=django-chosen"
 
 If the source is already checked out, use setuptools:
 
-        $ python setup.py install
+        python setup.py develop
+
+or, you can install from pypi:
+
+        pip install django-chosen
 
 Usage
 -----
