@@ -1,5 +1,6 @@
 from django import forms
 from django.conf import settings
+from django.utils.translation import get_language_bidi
 
 __all__ = ['ChosenWidgetMixin', 'ChosenSelect', 'ChosenSelectMultiple',
         'ChosenGroupSelect']
@@ -17,6 +18,8 @@ class ChosenWidgetMixin(object):
         attrs['data-placeholder'] = kwargs.pop('overlay', None)
         attrs['class'] = "class" in attrs and self.add_to_css_class(
             attrs['class'], 'chzn-select') or "chzn-select"
+        if get_language_bidi():
+            attrs['class'] = self.add_to_css_class(attrs['class'], 'chzn-rtl')
         super(ChosenWidgetMixin, self).__init__(attrs, *args, **kwargs)
 
     def render(self, *args, **kwargs):
