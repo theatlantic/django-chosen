@@ -1,6 +1,1 @@
-include chosen/static/css/chosen.css
-include chosen/static/css/chosen-sprite.png
-include chosen/static/css/chosen-sprite@2x.png
-include chosen/static/js/*.js
-include chosen/static/js/chosen.LICENSE.md
-reverse-include chosen/static *
+recursive-include chosen/static *
