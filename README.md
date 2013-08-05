@@ -5,6 +5,10 @@ django-chosen
 the [Chosen javascript plugin](http://harvesthq.github.com/chosen/). It was
 created by developers at [The Atlantic](http://www.theatlantic.com/).
 
+Note that there is a select field library with even more features available at
+[https://github.com/theatlantic/django-select2-forms](https://github.com/theatlantic/django-select2-forms).
+Most implementation work will go towards django-select2-forms.
+
 Installation
 ------------
 
