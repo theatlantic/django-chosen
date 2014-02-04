@@ -475,7 +475,7 @@
 
   })();
 
-  $ = jQuery;
+  $ = (typeof window.django != 'undefined') ? django.jQuery : jQuery;
 
   $.fn.extend({
     chosen: function(options) {
