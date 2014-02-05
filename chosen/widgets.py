@@ -17,9 +17,9 @@ class ChosenWidgetMixin(object):
 
         attrs['data-placeholder'] = kwargs.pop('overlay', None)
         attrs['class'] = "class" in attrs and self.add_to_css_class(
-            attrs['class'], 'chzn-select') or "chzn-select"
+            attrs['class'], 'chosen-select') or "chosen-select"
         if get_language_bidi():
-            attrs['class'] = self.add_to_css_class(attrs['class'], 'chzn-rtl')
+            attrs['class'] = self.add_to_css_class(attrs['class'], 'chosen-rtl')
         super(ChosenWidgetMixin, self).__init__(attrs, *args, **kwargs)
 
     def render(self, *args, **kwargs):
@@ -51,4 +51,4 @@ class ChosenGroupSelect(ChosenSelect):
 
     def __init__(self, attrs={}, *args, **kwargs):
         super(ChosenGroupSelect, self).__init__(attrs, *args, **kwargs)
-        attrs["class"] = "chzn-single chzn-single-with-drop"
+        attrs["class"] = "chosen-single chosen-with-drop"

@@ -8,13 +8,13 @@
         if (typeof _dismissAddAnotherPopup === 'function') {
             _dismissAddAnotherPopup(win, newId, newRepr);
         }
-        if ($elem.hasClass('chzn-select')) {
+        if ($elem.hasClass('chosen-select')) {
             $elem.trigger('liszt:updated');
         }
     };
 
     $(function () {
-        $(".chzn-select").each(function(i, select) {
+        $(".chosen-select").each(function(i, select) {
             var $select = $(select);
 
             // Set overflow:visible on parent .form-row for django admin
@@ -31,7 +31,7 @@
                 }).css('overflow', 'visible');
             }
 
-            options = {}
+            options = {};
             if ($select.attr('data-optional')) {
                 options['allow_single_deselect'] = true;
             }
