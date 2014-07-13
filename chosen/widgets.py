@@ -9,9 +9,9 @@ __all__ = ['ChosenWidgetMixin', 'ChosenSelect', 'ChosenSelectMultiple',
 class ChosenWidgetMixin(object):
 
     class Media:
-        js = ("%s%s?v=2" % (settings.STATIC_URL, "js/chosen.jquery.min.js"),
-              "%s%s?v=4" % (settings.STATIC_URL, "js/chosen.jquery_ready.js"))
-        css = {"all": ("%s%s?v=1" % (settings.STATIC_URL, "css/chosen.css"), )}
+        js = ("%s%s?v=2" % (settings.STATIC_URL, "chosen/js/chosen.jquery.min.js"),
+              "%s%s?v=4" % (settings.STATIC_URL, "chosen/js/chosen.jquery_ready.js"))
+        css = {"all": ("%s%s?v=1" % (settings.STATIC_URL, "chosen/css/chosen.css"), )}
 
     def __init__(self, attrs={}, *args, **kwargs):
 
