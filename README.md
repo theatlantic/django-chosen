@@ -45,6 +45,12 @@ __Widgets:__
 The *django-chosen* fields can be passed an optional kwarg `overlay` that
 overrides the text which appears when no option is selected in the dropdown.
 
+Add `chosen` to your `INSTALLED_APPS`, then, in your template, inject your form medias to get chosen css and js :
+
+```html
+{{ form.media }}
+```
+
 Example
 -------
 
