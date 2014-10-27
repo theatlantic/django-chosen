@@ -30,10 +30,10 @@ class ChosenWidgetMixin(object):
     def add_to_css_class(self, classes, new_class):
         new_classes = classes
         try:
-            classes_test = u" " + unicode(classes) + u" "
-            new_class_test = u" " + unicode(new_class) + u" "
+            classes_test = " " + str(classes) + " "
+            new_class_test = " " + str(new_class) + " "
             if new_class_test not in classes_test:
-                new_classes += u" " + unicode(new_class)
+                new_classes += " " + str(new_class)
         except TypeError:
             pass
         return new_classes
