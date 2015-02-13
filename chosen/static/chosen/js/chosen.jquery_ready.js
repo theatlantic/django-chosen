@@ -50,9 +50,10 @@
 	            		var id = $select.data('chosen').results_data[index].value;
 	            		// Construct link to page for the foreign key object.
 	            		var fk_url = fk_url_base + id;
-	            		//TODO:prevent onclick from triggering chosen dropdown?
 	            	    return '<a class="search-choice-fk-link" href="' + fk_url + '" target="' + fk_url_target + '">' + $.trim(el.text()) + '</a>';
 	            	});
+	            	// Allow the links to be clicked normally.
+            		$('.search-choice-fk-link', chosen_el).parent().parent().unbind('click');
             	}
             }).trigger("change");
             

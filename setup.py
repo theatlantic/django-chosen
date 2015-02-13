@@ -9,7 +9,7 @@ except ImportError:
 
 setup(
     name='django-chosen',
-    version="0.1",
+    version="0.1.1",
     description='django FormFields using the Chosen javascript plugin for jQuery',
     author='Frankie Dintino',
     author_email='fdintino@theatlantic.com',

@@ -65,6 +65,26 @@ class BookForm(forms.Form):
     authors = chosenforms.ChosenModelMultipleChoiceField(queryset=Author.objects.all())
 ```
 
+When the selectable items represent a model with an admin change-page or similar edit-page, you can render each item as link to these pages by doing:
+
+```python
+from django import forms
+from django.core.urlresolvers import reverse
+from chosen import forms as chosenforms
+
+class BookForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    quality = chosenforms.ChosenChoiceField(overlay="Select book quality...",
+        choices=(('New', 'new'), ('Used', 'used')))
+    authors = chosenforms.ChosenModelMultipleChoiceField(queryset=Author.objects.all())
+    
+    def __init__(self, *args, **kwargs):
+        super(BookForm, self).__init__(*args, **kwargs)
+        self.fields['authors'].widget.attrs['chosen-fk-url-base'] = reverse('admin:myapp_author_changelist')
+        self.fields['authors'].widget.attrs['chosen-fk-url-target'] = '_blank'
+```
+
+
 License
 -------
 The django code is licensed under the
