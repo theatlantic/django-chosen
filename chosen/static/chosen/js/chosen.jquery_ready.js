@@ -13,7 +13,7 @@
         }
     };
 
-    $(function () {
+	$(document).ready(function($){
         $(".chosen-select").each(function(i, select) {
             var $select = $(select);
 
@@ -37,7 +37,25 @@
             }
 
             // Initialize Chosen
-            $select.chosen(options);
+            $select.chosen(options).change(function(){
+            	// If a foreign-key URL defined, convert Chosen selections to links.
+            	var fk_url_base = $select.attr('chosen-fk-url-base');
+            	var fk_url_target = $select.attr('chosen-fk-url-target') || '_blank';
+            	if(fk_url_base){
+	            	var chosen_el = $('#'+$select.attr('id')+'_chosen');
+	            	$('.chosen-choices .search-choice span', chosen_el).replaceWith(function(){
+	            		var el = $(this);
+	            		// Lookup object id from the close button.
+	            		var index = parseInt($('.search-choice-close', el.parent()).attr('data-option-array-index'));
+	            		var id = $select.data('chosen').results_data[index].value;
+	            		// Construct link to page for the foreign key object.
+	            		var fk_url = fk_url_base + id;
+	            		//TODO:prevent onclick from triggering chosen dropdown?
+	            	    return '<a class="search-choice-fk-link" href="' + fk_url + '" target="' + fk_url_target + '">' + $.trim(el.text()) + '</a>';
+	            	});
+            	}
+            }).trigger("change");
+            
         });
     });
-})((typeof window.django != 'undefined') ? django.jQuery : jQuery);
+})((typeof window.django != 'undefined' && typeof django.jQuery.fn.chosen != 'undefined') ? django.jQuery : jQuery);
