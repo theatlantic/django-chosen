@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import chosen
+
 try:
 	from setuptools import setup, find_packages
 except ImportError:
@@ -9,11 +11,11 @@ except ImportError:
 
 setup(
     name='django-chosen-mega',
-    version="0.1.1",
+    version=chosen.__version__,
     description='django FormFields using the Chosen javascript plugin for jQuery',
-    author='Frankie Dintino',
-    author_email='fdintino@theatlantic.com',
-    url='https://github.com/theatlantic/django-chosen',
+    author='Chris Spencer',
+    author_email='chrisspen@gmail.com',
+    url='https://github.com/chrisspen/django-chosen',
     packages=find_packages(),
     classifiers=[
         'Environment :: Web Environment',
@@ -22,6 +24,9 @@ setup(
         'Programming Language :: Python',
         'Framework :: Django',
     ],
+	install_requires=[
+		'Django>=1.4',
+	],
 	include_package_data=True,
 	zip_safe=False,
 )
