@@ -8,7 +8,7 @@ except ImportError:
 	from setuptools import setup, find_packages
 
 setup(
-    name='django-chosen',
+    name='django-chosen-mega',
     version="0.1.1",
     description='django FormFields using the Chosen javascript plugin for jQuery',
     author='Frankie Dintino',
