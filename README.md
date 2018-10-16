@@ -27,7 +27,7 @@ or, you can install from pypi:
 Usage
 -----
 
-*django-chosen* makes the following fields and widget available:
+*django-chosen* makes the following fields and widgets available:
 
 __Fields:__
 
@@ -42,7 +42,7 @@ __Widgets:__
 * `ChosenSelectMultiple`
 
 
-The *django-chosen* fields can be passed an optional kwarg `overlay` that
+The *django-chosen* fields can be passed an optional kwarg, `overlay`, that
 overrides the text which appears when no option is selected in the dropdown.
 
 Add `chosen` to your `INSTALLED_APPS`, then, in your template, inject your form medias to get chosen css and js :
@@ -68,9 +68,9 @@ class BookForm(forms.Form):
 License
 -------
 The django code is licensed under the
-[Simplified BSD License](Simplified BSD License) and is copyright The Atlantic
-Media Company. View the `LICENSE` file under the root directory for complete
-license and copyright information.
+[Simplified BSD License](https://en.wikipedia.org/wiki/BSD_licenses#2-clause)
+and is copyright The Atlantic Media Company. View the `LICENSE` file under the
+root directory for complete license and copyright information.
 
 The Chosen javascript library included is licensed under the
 [MIT License](http://en.wikipedia.org/wiki/MIT_License). View
