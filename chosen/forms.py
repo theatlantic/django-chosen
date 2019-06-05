@@ -1,6 +1,4 @@
 # flake8: noqa
-import fields
-from fields import *
+from chosen.fields import *
 
-import widgets
-from widgets import *
+from chosen.widgets import *
