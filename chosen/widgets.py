@@ -6,7 +6,7 @@ __all__ = ['ChosenWidgetMixin', 'ChosenSelect', 'ChosenSelectMultiple',
         'ChosenGroupSelect']
 
 
-class ChosenWidgetMixin(object):
+class ChosenWidgetMixin:
 
     class Media:
         js = ("%s%s?v=2" % (settings.STATIC_URL, "chosen/js/chosen.jquery.min.js"),
@@ -30,10 +30,10 @@ class ChosenWidgetMixin(object):
     def add_to_css_class(self, classes, new_class):
         new_classes = classes
         try:
-            classes_test = u" " + unicode(classes) + u" "
-            new_class_test = u" " + unicode(new_class) + u" "
+            classes_test = u" " + str(classes) + u" "
+            new_class_test = u" " + str(new_class) + u" "
             if new_class_test not in classes_test:
-                new_classes += u" " + unicode(new_class)
+                new_classes += u" " + str(new_class)
         except TypeError:
             pass
         return new_classes
