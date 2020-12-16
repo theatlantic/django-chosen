@@ -1,13 +1,22 @@
 #!/usr/bin/env python
 
+import os
+
+from setuptools import setup, find_packages
+
 import chosen
 
-try:
-    from setuptools import setup, find_packages
-except ImportError:
-    from ez_setup import use_setuptools
-    use_setuptools()
-    from setuptools import setup, find_packages
+CURRENT_DIR = os.path.abspath(os.path.dirname(__file__))
+
+def get_reqs(*fns):
+    lst = []
+    for fn in fns:
+        for package in open(os.path.join(CURRENT_DIR, fn)).readlines():
+            package = package.strip()
+            if not package:
+                continue
+            lst.append(package.strip())
+    return lst
 
 setup(
     name='django-chosen-mega',
@@ -27,12 +36,8 @@ setup(
         "Programming Language :: Python :: 3.6",
         'Framework :: Django',
     ],
-    install_requires=[
-        'Django>=1.11',
-    ],
     include_package_data=True,
     zip_safe=False,
     install_requires=get_reqs('requirements-min-django.txt', 'requirements.txt'),
     tests_require=get_reqs('requirements-test.txt'),
 )
-
