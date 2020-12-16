@@ -1,6 +1,6 @@
 from django import forms
 
-from widgets import ChosenSelect, ChosenSelectMultiple, ChosenGroupSelect
+from .widgets import ChosenSelect, ChosenSelectMultiple, ChosenGroupSelect
 
 __all__ = [
     'ChosenFieldMixin', 'ChosenChoiceField', 'ChosenMultipleChoiceField',

@@ -1,1 +1,4 @@
 recursive-include chosen/static *
+include requirements-min-django.txt
+include requirements.txt
+include requirements-test.txt
