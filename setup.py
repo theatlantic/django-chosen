@@ -3,11 +3,11 @@
 import chosen
 
 try:
-	from setuptools import setup, find_packages
+    from setuptools import setup, find_packages
 except ImportError:
-	from ez_setup import use_setuptools
-	use_setuptools()
-	from setuptools import setup, find_packages
+    from ez_setup import use_setuptools
+    use_setuptools()
+    from setuptools import setup, find_packages
 
 setup(
     name='django-chosen-mega',
@@ -27,10 +27,12 @@ setup(
         "Programming Language :: Python :: 3.6",
         'Framework :: Django',
     ],
-	install_requires=[
-		'Django>=1.11',
-	],
-	include_package_data=True,
-	zip_safe=False,
+    install_requires=[
+        'Django>=1.11',
+    ],
+    include_package_data=True,
+    zip_safe=False,
+    install_requires=get_reqs('requirements-min-django.txt', 'requirements.txt'),
+    tests_require=get_reqs('requirements-test.txt'),
 )
 

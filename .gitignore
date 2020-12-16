@@ -11,5 +11,6 @@ pip-log.txt
 *swp
 /.project
 /.pydevproject
+.env
 *.out
 *.geany
